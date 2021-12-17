@@ -9,59 +9,56 @@ import {
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import "./MainFIlter.css";
-import SearchIcon from '@mui/icons-material/Search';
+import SearchIcon from "@mui/icons-material/Search";
 import Checkboxes from "./Checkboxes";
 
 function MainFilter(props) {
-
-  const [brandList,setbrandList]=useState([]);
+  const [brandList, setbrandList] = useState([]);
   const [gender, setgender] = useState("Men");
-  const handleChange=(value)=>{
+
+  const handleChange = (value) => {
     setgender(value);
-   
-  }
+  };
+
   useEffect(() => {
-    props.GenderChange(gender)
-  
-  }, [gender])
+    props.GenderChange(gender);
+  }, [gender]);
+
   // console.log(gender);
+  console.log("main render");
 
   const uniqueBrands = [];
-props.list.map(item => {
+  props.list.map((item) => {
     if (uniqueBrands.indexOf(item.brand) === -1) {
-      uniqueBrands.push(item.brand)
+      uniqueBrands.push(item.brand);
     }
-});
+  });
 
-// console.log(uniqueBrands)
+  console.log(uniqueBrands);
 
-// const brands=(bran)=>{
+  const removed=(val)=>{
+    const arr=brandList.filter((item)=>{
+     return( (item!==val));
 
-//   if(brandList.indexOf(bran)==-1)
-//   {
-//     setbrandList([...brandList,bran]);
-//   }
-//   else
-//   {
-//     console.log("already");
-//   }
- 
-  
-// }
-console.log(brandList);
+    })
+    setbrandList(arr);
+    console.log(brandList);
 
-   
+  }
+
+  const brands = (bran) => {
+    if (brandList.indexOf(bran) === -1) {
+      setbrandList([...brandList, bran]);
+    } else {
+      removed(bran)
+    }
+  };
+  console.log(brandList);
+
   return (
-   
     <div className="filterSection">
       <div className="condition">
-        <div className="filter-heading vertical-filters ">
-            
-            FILTERS
-        
-        
-        
-        </div>
+        <div className="filter-heading vertical-filters ">FILTERS</div>
 
         <div className="vertical-filters">
           <FormControl component="fieldset">
@@ -76,20 +73,17 @@ console.log(brandList);
                 value="Women"
                 control={<Radio />}
                 label="Women"
-                onChange={(e)=>{
+                onChange={(e) => {
                   handleChange(e.target.value);
-
                 }}
-                
                 className="bullet-name"
               />
               <FormControlLabel
                 value="Men"
                 control={<Radio />}
                 label="Men"
-                onChange={(e)=>{
+                onChange={(e) => {
                   handleChange(e.target.value);
-
                 }}
                 className="bullet-name"
               />
@@ -97,9 +91,8 @@ console.log(brandList);
                 value="Boys"
                 control={<Radio />}
                 label="Boys"
-                onChange={(e)=>{
+                onChange={(e) => {
                   handleChange(e.target.value);
-
                 }}
                 className="bullet-name"
               />
@@ -107,9 +100,8 @@ console.log(brandList);
                 value="Girls"
                 control={<Radio />}
                 label="Girls"
-                onChange={(e)=>{
+                onChange={(e) => {
                   handleChange(e.target.value);
-
                 }}
                 className="bullet-name"
               />
@@ -118,33 +110,18 @@ console.log(brandList);
         </div>
 
         <div className="vertical-filters">
-            <div className="brand-head">
-
-            
-          <div className="brand-heading">
-            BRAND
-
-         
-            
-          
-          </div>
-          <IconButton className="search-icon-filter">
-          <SearchIcon />
-          </IconButton>
+          <div className="brand-head">
+            <div className="brand-heading">BRAND</div>
+            <IconButton className="search-icon-filter">
+              <SearchIcon />
+            </IconButton>
           </div>
           <div>
-
-
-          {uniqueBrands.map((brand)=>{
-            // {console.log(brand)}
-           return (
-             <Checkboxes name={brand}  brandList={brandList} setbrandList={setbrandList} />
-           );
-
-          })}
-
-        </div>
-          
+            {uniqueBrands.map((brand) => {
+              // {console.log(brand)}
+              return <Checkboxes name={brand} addon={brands} list={brandList} remove={removed} />;
+            })}
+          </div>
         </div>
       </div>
     </div>

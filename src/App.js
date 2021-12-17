@@ -20,7 +20,7 @@ function App() {
   const filteredList=data.filter((item)=>{return item.gender===gender});
 
 
-
+// console.log("app render")
   
   return (
     <div >

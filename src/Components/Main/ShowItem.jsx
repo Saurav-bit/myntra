@@ -54,10 +54,13 @@ function ShowItem(props) {
          }}>
             <div className='product'>
             
-                <div className='product-image-container'>
+                <div className='product-image-container' onMouseOver={()=>{
+                    console.log("slides")
+                    setslide(true)
+                }}>
                     {/* {console.log(hover)} */}
 
-                    {/* {hover ? <SimpleImageSlider
+                    {slide ? <SimpleImageSlider
                width={300}
                height={300}
                 images={images}
@@ -73,16 +76,16 @@ function ShowItem(props) {
                  autoPlay={false}
                  className='image-item'
                  
-                 />} */}
-                <SimpleImageSlider
+                 />}
+                {/* <SimpleImageSlider
                width={300}
                height={300}
                 images={images}
                
-                autoPlay={true}
+                autoPlay={slide}
                 className='image-item'
                 
-                />
+                /> */}
                 {/* <img src={props.imgs[0].src} alt="pic" className='image-item'/> */}
 
                  {props.rate &&  <div className='rating'>

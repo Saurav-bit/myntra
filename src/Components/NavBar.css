@@ -1,0 +1,56 @@
+
+.logo{
+    background: url("https://constant.myntassets.com/web/assets/img/MyntraWebSprite_27_01_2021.png");
+    width: 53px;
+    height: 36px;
+    display: inline-block;
+    background-size: 1404px 105px;
+    background-position: -462px 0
+}
+
+.Navbar{
+    box-shadow: 0 4px 12px 0 rgba(0,0,0,.05);
+    background-color: #fff;
+    /* z-index: 10; */
+    padding: 0 5em;
+    
+}
+.nav-bar-items{
+    display: flex;
+    width: 90%;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.nav-options-menu{
+    flex: 0.7;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.nav-item{
+    color:black;
+    font-weight: 700;
+    margin: 0 1rem;
+    padding: 0;
+
+}
+
+.nav-search{
+    flex: 0.4;
+    display: flex;
+    width: 70%;
+    margin:0 10px;
+}
+
+.nav-icons{
+    flex: 0.2;
+    display: flex;
+    justify-content: space-around;
+   
+   
+    align-items: center;
+}

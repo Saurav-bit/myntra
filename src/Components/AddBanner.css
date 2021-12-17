@@ -1,0 +1,19 @@
+.banner{
+    top:82px;
+    max-width: 100%;
+width: 100%;
+margin: 0 auto;
+top: 70px;
+position: relative;
+-webkit-box-shadow: 0 2px 12px 0 rgba(0,0,0,.04);
+box-shadow: 0 2px 12px 0 rgba(0,0,0,.04);
+text-align: center;
+
+
+}
+.banner-add{
+    background-image: linear-gradient(90deg,#f9f9ff,#dee8ff);
+    margin: 0 auto;
+    height: 2em;
+
+}

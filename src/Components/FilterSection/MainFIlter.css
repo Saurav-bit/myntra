@@ -1,0 +1,61 @@
+.filterSection{
+    display: block;
+    position: relative;
+    top: 107px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-self: flex-start;
+    min-width: 250px;
+    max-width: 250px;
+    flex: 0.4;
+
+}
+
+.condition{
+    position: static;
+}
+
+.vertical-filters{
+    padding-top: 20px;
+    padding-bottom: 15px;
+    padding-left: 30px;
+    border-bottom: 1px solid #e9e9ed;
+    position: relative;
+    border-right: 1px solid #edebef;
+}
+.filter-heading{
+    font-weight: 700;
+    position: relative;
+    border-right: none!important;
+    padding-top: 0
+
+}
+
+.css-j204z7-MuiFormControlLabel-root .MuiFormControlLabel-label {
+    font-weight: 700;
+    
+}
+
+.bullet-name{
+    padding-top: 1px;
+}
+
+/* .brand-heading{
+    font-weight: 500;
+    padding-top: 5px !important;
+} */
+
+.brand-head{
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-icon-filter{
+    margin: 0 2rem ;
+}
+
+.vertical-filters .brand-heading{
+    
+    font-weight: 500;
+
+}

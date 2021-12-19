@@ -8,13 +8,17 @@ import ShoppingBag from '@mui/icons-material/ShoppingBag';
 import IconButton from '@mui/material/IconButton'
 import SearchIcon from '@mui/icons-material/Search';
 import { InputAdornment, TextField } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 function NavBar() {
+  const hist=useNavigate();
     return (
         <div >
             <Navbar bg="light" expand="lg" fixed="top" className='Navbar'>
   {/* <Container> */}
-    <Navbar.Brand href="#" className='logo'></Navbar.Brand>
+    <Navbar.Brand href="#" className='logo' onClick={()=>{
+      hist("")
+    }}></Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     
     <Navbar.Collapse id="basic-navbar-nav">

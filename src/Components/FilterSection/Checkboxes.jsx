@@ -6,15 +6,24 @@ function Checkboxes(props) {
   const [brands, setbrands] = useState("");
 
 //   var newbg = [];
-  const updatebrands = (val) => {
+  const updatebrands = (val,e) => {
 
     // console.log(val);
 
-    if (props.list.indexOf(val) !== -1) {
+    // if (props.list.indexOf(val) !== -1) {
+    //     props.remove(val);
+    //   } else {
+    //     setbrands(val);
+    //   }
+
+    if(e.target.checked===false)
+    {
         props.remove(val);
-      } else {
-        setbrands(val);
-      }
+    }
+    else
+    {
+      setbrands(val);
+    }
    
     // if (props.brandList.indexOf(val) === -1) {
     //   props.setbrandList([...props.brandList, val]);
@@ -32,6 +41,7 @@ function Checkboxes(props) {
     //   console.log(brands);
 
      props.addon(brands)
+     console.log(brands)
 
   }, [brands])
 
@@ -40,7 +50,8 @@ function Checkboxes(props) {
       <Checkbox
         value={props.name}
         onChange={(e) => {
-          updatebrands(e.target.value);
+          updatebrands(e.target.value,e);
+          // console.log(e.target.checked);
           
         }}
       />

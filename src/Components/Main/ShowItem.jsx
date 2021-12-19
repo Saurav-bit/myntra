@@ -2,14 +2,17 @@ import React, { useRef, useState,useEffect } from 'react'
 import "./ShowItem.css";
 import SimpleImageSlider from "react-simple-image-slider";
 
+import { useNavigate } from 'react-router-dom';
+
+
 
 
 function ShowItem(props) {
 
     const [hover, sethover] = useState(false);
     const [slide, setslide] = useState(false);
-    
-
+    const hist=useNavigate();
+    // console.log(hist)
     const ChangeToHover=()=>{
        
             sethover(true);
@@ -42,25 +45,29 @@ function ShowItem(props) {
         
       ];
     // console.log(props.imgs)
+    const url='"/'+props.link+'"';
+    console.log(url)
     return (
-        <div className='wrapper'onMouseOver={()=>{
-            ChangeToHover();
-
-         }}
-         onMouseOut={()=>{
-             ChangetoNotHover();
-             
-            
-         }}>
+        
+        <div className='wrapper' >
+          
             <div className='product'>
-            
-                <div className='product-image-container' onMouseOver={()=>{
-                    console.log("slides")
-                    setslide(true)
-                }}>
+               
+                {/* <Link to="/new"> */}
+                {/* {console.log(props.link)} */}
+                <div className='product-image-container' onClick={()=>{
+                    // hist.push("/new");
+                    console.log(props.brand);
+                    const ok=String(props.link);
+                    hist(`new/${props.id}`)
+                    // console.log(hist);
+                }} >
+                    
+                   
+               
                     {/* {console.log(hover)} */}
 
-                    {slide ? <SimpleImageSlider
+                    {/* {slide ? <SimpleImageSlider
                width={300}
                height={300}
                 images={images}
@@ -76,16 +83,16 @@ function ShowItem(props) {
                  autoPlay={false}
                  className='image-item'
                  
-                 />}
-                {/* <SimpleImageSlider
+                 />} */}
+                <SimpleImageSlider
                width={300}
                height={300}
                 images={images}
                
-                autoPlay={slide}
+                autoPlay={true}
                 className='image-item'
                 
-                /> */}
+                />
                 {/* <img src={props.imgs[0].src} alt="pic" className='image-item'/> */}
 
                  {props.rate &&  <div className='rating'>
@@ -99,6 +106,7 @@ function ShowItem(props) {
                 
 
                 </div>
+                {/* </Link> */}
                 <div className='product-info'>
 
                    <h4>{props.brand}</h4>
@@ -127,7 +135,23 @@ function ShowItem(props) {
 
 
                 </div>
+
+               
+                
+                
         </div>
+       
+    )
+}
+
+
+function NewItem() {
+    return (
+        <h2>
+ hlo 
+        </h2>
+          
+       
     )
 }
 

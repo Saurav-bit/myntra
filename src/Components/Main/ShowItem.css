@@ -103,6 +103,10 @@
 
 }
 
+.product-image-container :hover{
+    cursor: pointer;
+}
+
 
     
 

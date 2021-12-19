@@ -11,49 +11,59 @@ import React, { useEffect, useState } from "react";
 import "./MainFIlter.css";
 import SearchIcon from "@mui/icons-material/Search";
 import Checkboxes from "./Checkboxes";
+import Check from "./Check";
 
 function MainFilter(props) {
-  const [brandList, setbrandList] = useState([]);
+ 
   const [gender, setgender] = useState("Men");
-
+  const [brands, setbrands] = useState([])
   const handleChange = (value) => {
     setgender(value);
   };
 
   useEffect(() => {
     props.GenderChange(gender);
+    // setbrandList([]);
   }, [gender]);
 
   // console.log(gender);
-  console.log("main render");
+  console.log("main filter render");
 
-  const uniqueBrands = [];
-  props.list.map((item) => {
-    if (uniqueBrands.indexOf(item.brand) === -1) {
-      uniqueBrands.push(item.brand);
-    }
-  });
+  // const uniqueBrands = [];
+  // props.list.map((item) => {
+  //   if (uniqueBrands.indexOf(item.brand) === -1) {
+  //     uniqueBrands.push(item.brand);
+  //   }
+  // });
 
-  console.log(uniqueBrands);
+  // console.log(uniqueBrands);
 
-  const removed=(val)=>{
-    const arr=brandList.filter((item)=>{
-     return( (item!==val));
+  // const removed=(val)=>{
+  //   const arr=brandList.filter((item)=>{
+  //    return( (item!==val));
 
-    })
-    setbrandList(arr);
-    console.log(brandList);
+  //   })
+  //   setbrandList(arr);
+  //   console.log(brandList);
 
-  }
+  // }
 
-  const brands = (bran) => {
-    if (brandList.indexOf(bran) === -1) {
-      setbrandList([...brandList, bran]);
-    } else {
-      removed(bran)
-    }
-  };
-  console.log(brandList);
+  // const brands = (bran) => {
+  //   if (brandList.indexOf(bran) === -1) {
+  //     setbrandList([...brandList, bran]);
+  //   } else {
+  //     removed(bran)
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   props.brands(brandList);
+   
+   
+  // }, [brandList])
+
+
+  // console.log(brandList);
 
   return (
     <div className="filterSection">
@@ -109,19 +119,13 @@ function MainFilter(props) {
           </FormControl>
         </div>
 
+
+
+
+
         <div className="vertical-filters">
-          <div className="brand-head">
-            <div className="brand-heading">BRAND</div>
-            <IconButton className="search-icon-filter">
-              <SearchIcon />
-            </IconButton>
-          </div>
-          <div>
-            {uniqueBrands.map((brand) => {
-              // {console.log(brand)}
-              return <Checkboxes name={brand} addon={brands} list={brandList} remove={removed} />;
-            })}
-          </div>
+          <Check list={props.list} brands={brands} setbrands={setbrands}/>
+         
         </div>
       </div>
     </div>

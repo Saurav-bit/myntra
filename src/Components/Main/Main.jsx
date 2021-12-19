@@ -86,7 +86,7 @@ function Main(props) {
                 {filteredList.map((item)=>{
                     
                     return(
-                        <ShowItem imgs={item.images} brand={item.brand} info={item.additionalInfo} rate={item.rating} disc={item.discountDisplayLabel} cut={item.mrp} show={item.price}/>
+                        <ShowItem imgs={item.images} brand={item.brand} info={item.additionalInfo} rate={item.rating} disc={item.discountDisplayLabel} cut={item.mrp} show={item.price} link={item.landingPageUrl} id={item.productId} />
                     );
 
                 })}

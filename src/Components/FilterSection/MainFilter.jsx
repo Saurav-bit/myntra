@@ -123,10 +123,10 @@ function MainFilter(props) {
 
 
 
-        <div className="vertical-filters">
+        {/* <div className="vertical-filters">
           <Check list={props.list} brands={brands} setbrands={setbrands}/>
          
-        </div>
+        </div> */}
       </div>
     </div>
   );
